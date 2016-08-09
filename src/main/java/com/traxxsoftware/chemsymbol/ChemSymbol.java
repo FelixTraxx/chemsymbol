@@ -1,20 +1,11 @@
 package com.traxxsoftware.chemsymbol;
 
-/**
- * Created by macbookpro on 8/8/16.
- */
+
 public class ChemSymbol {
-
-    public static void main(String[] args)
-    {
-
-
-
-    }
 
     public static boolean isValidSymbol(String element, String symbol)
     {
-        boolean isValid = false;
+        // Uppercase element and symbol strings
         String elementUpper = element.toUpperCase();
         String symbolUpper = symbol.toUpperCase();
 
@@ -24,9 +15,11 @@ public class ChemSymbol {
             return false;
         }
 
+        // Get first and second character of upper symbol
         char firstCharUpper = symbolUpper.charAt(0);
         char secondCharUpper = symbolUpper.charAt(1);
 
+        // Get first and second character of lower symbol
         char firstChar = symbol.charAt(0);
         char secondChar = symbol.charAt(1);
 
@@ -36,26 +29,7 @@ public class ChemSymbol {
             return false;
         }
 
-        boolean firstFound = false;
-        boolean secondFound = false;
-
-        char charactersUpper[] = elementUpper.toCharArray();
-
-        // Check that first letter comes before second letter.
-        for(char ch: charactersUpper)
-        {
-            if(ch == secondCharUpper && firstFound == true)
-            {
-                secondFound = true;
-            }
-
-            if(ch == firstCharUpper && firstFound == false)
-            {
-                firstFound = true;
-            }
-
-        }
-
+        // Check that first charachter of element is upper and all others are lower
         char characters[] = element.toCharArray();
 
         int index = 0;
@@ -74,6 +48,28 @@ public class ChemSymbol {
 
             index++;
         }
+
+        // Check that first letter comes before second letter.
+        char charactersUpper[] = elementUpper.toCharArray();
+
+        boolean firstFound = false;
+        boolean secondFound = false;
+
+        for(char ch: charactersUpper)
+        {
+            if(ch == secondCharUpper && firstFound == true)
+            {
+                secondFound = true;
+            }
+
+            if(ch == firstCharUpper && firstFound == false)
+            {
+                firstFound = true;
+            }
+
+        }
+
+        boolean isValid = false;
 
         if(firstFound && secondFound)
         {

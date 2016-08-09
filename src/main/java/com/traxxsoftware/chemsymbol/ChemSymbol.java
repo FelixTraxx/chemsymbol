@@ -15,6 +15,18 @@ public class ChemSymbol {
             return false;
         }
 
+        // Check element for a-z and A-Z
+        if(!element.matches("^[a-zA-Z]+"))
+        {
+            return false;
+        }
+
+        // Check symbol for a-z and A-Z
+        if(!symbol.matches("^[a-zA-Z]+"))
+        {
+            return false;
+        }
+
         // Get first and second character of upper symbol
         char firstCharUpper = symbolUpper.charAt(0);
         char secondCharUpper = symbolUpper.charAt(1);

@@ -73,5 +73,10 @@ public class ChemSymbolTest
         result = ChemSymbol.isValidSymbol("Tullium","Ty");
         Assert.assertFalse(result);
 
+        result = ChemSymbol.isValidSymbol("Venkmine9","K9");
+        Assert.assertFalse(result);
+
+        result = ChemSymbol.isValidSymbol("Venkmine.","K.");
+        Assert.assertFalse(result);
     }
 }
